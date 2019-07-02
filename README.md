@@ -27,7 +27,9 @@ Reviewer_value|	int|	评论人等级
 Reviewer_rank|	int|	评论人是否为VIP用户（1为是，0为否）
 Favorite_foods	|string|	喜欢的菜
 
-### 样例数据![样例数据](https://img-blog.csdnimg.cn/20190702211737886.png)
+### 样例数据
+
+![样例数据](https://img-blog.csdnimg.cn/20190702211737886.png)
 
 ---
 ## 数据预处理
@@ -74,9 +76,12 @@ model.summary()
 
 ## 结果
 ### RNN
+
 ![RNN](https://img-blog.csdnimg.cn/20190702213251845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FudGhvbnlNMDg=,size_16,color_FFFFFF,t_70)
 ### CNN
+
 ![CNN](https://img-blog.csdnimg.cn/20190702213225422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FudGhvbnlNMDg=,size_16,color_FFFFFF,t_70)
+
 CNN 是分层架构，RNN 是连续结构。在处理语言的任务上，基于它们的特性“分层（CNN） vs. 连续（RNN）”，我们倾向于为分类类型的任务选择 CNN，例如情感分类，因为情感通常是由一些关键词来决定的；对于顺序建模任务，我们会选择 RNN，例如语言建模任务，要求在了解上下文的基础上灵活建模。模型训练效果很不理想最后准确率只有百分之20左右，数据集中的文本其实有很多信息都是噪声，很多人喜欢在评论里报流水账，但可能和最终的Rating没有很大关系，而大部分关系到星级的会直接表达“好”或者是“差”。
 虽然CNN在数据集上训练的很好，但是在测试集的上有过拟合现象。首先是数据量相对于特征参数来说还是不够，可能因为美食评论还是比较个性化的。还有虽然在模型中添加了说了文本中无关的噪声比较多，所以效果不佳。
 
